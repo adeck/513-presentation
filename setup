@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#
+# This requires git and virtualenv
+#
+
+install_deps ()
+{
+  revealjs && staticjinja
+}
+
+revealjs ()
+{
+  local result
+  git clone https://github.com/hakimel/reveal.js.git
+  result=$?
+  mv reveal.js reveal
+  return $result
+}
+
+staticjinja ()
+{
+  mkdir venv
+  virtualenv venv && pip install staticjinja
+  return $?
+}
+
+install_deps
+
+

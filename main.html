@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <title>State Space Complexity</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="reveal/css/reveal.css">
+  <link rel="stylesheet" href="reveal/css/theme/black.css">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section data-markdown>
+<script type="text/template">
+# Hi!
+I'm the first slide.
+</script>
+</section>
+<section data-markdown data-transition="zoom">
+<script type="text/template">
+And I'm the second slide.
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+# I am a third slide
+
+- with a list
+- of important things
+- in order
+
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+And I'm the second slide.
+</script>
+</section>
+</div>
+</div>
+</body>
+<script src="reveal/lib/js/head.min.js"></script>
+<script src="reveal/js/reveal.js"></script>
+<script type="text/javascript">
+Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'reveal/lib/js/classList.js',
+            condition:  function() { return !document.body.classList; } },
+					{ src: 'reveal/plugin/markdown/marked.js',
+            condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal/plugin/markdown/markdown.js',
+            condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'reveal/plugin/notes/notes.js', async: true }
+				]
+			});
+</script>
+</html>
+
+
