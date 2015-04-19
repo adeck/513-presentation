@@ -18,14 +18,22 @@ This should install the two dependencies (reveal.js and staticjinja) into the CW
 
 ## What technologies does this use and why?
 
-reveal.js
-: Implements the core slideshow functionality; like slidy, slideous, s5, deck.js, etc., etc. Too vague? [See for yourself.](https://lab.hakim.se/reveal-js)
+<dl>
+  <dt>reveal.js</dt>
+  <dd>
+  Implements the core slideshow functionality; like slidy, slideous, s5, deck.js, etc., etc. Too vague? [See for yourself.](https://lab.hakim.se/reveal-js)
+  </dd>
 
-staticjinja
-: Used to combine all the Jinja2 files from the separate slides into a single html file. Using staticjinja specifically because, usually, templating engines like Jinja2, haml, or Mojolicious' templating engine are part of web application frameworks and come bundled with a server. This doesn't need a server.
+  <dt>staticjinja</dt>
+  <dd>
+  Used to combine all the Jinja2 files from the separate slides into a single html file. Using staticjinja specifically because, usually, templating engines like Jinja2, haml, or Mojolicious' templating engine are part of web application frameworks and come bundled with a server. This doesn't need a server.
+  </dd>
 
-HTML, CSS, Javascript
-: Because it's web-based. The idea is that you write your presentation, compile it into a single html file (with a few external, static dependencies) and then simply visit that file from a normal browser.
+  <dt>HTML, CSS, Javascript</dt>
+  <dd>
+  Because it's web-based. The idea is that you write your presentation, compile it into a single html file (with a few external, static dependencies) and then simply visit that file from a normal browser.
+  </dd>
+</dl>
 
 
 
