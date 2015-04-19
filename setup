@@ -20,7 +20,7 @@ revealjs ()
 staticjinja ()
 {
   mkdir venv
-  virtualenv venv && pip install staticjinja
+  virtualenv venv && . venv/bin/activate && pip install staticjinja
   return $?
 }
 

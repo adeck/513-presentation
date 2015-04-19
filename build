@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+mkdir out 2>/dev/null
+staticjinja build --outpath=out
+
+
