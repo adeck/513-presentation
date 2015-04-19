@@ -9,4 +9,5 @@ out
 #   when ./build is run, and browsers view it correctly when the 'file://'
 #   URI scheme is employed.
 /main.html
+*.swp
 
