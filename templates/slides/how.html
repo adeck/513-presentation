@@ -1,0 +1,10 @@
+<section>
+{% set slides = [
+    'main'
+    ,'tools'
+  ]
+-%}
+{% for slide in slides %}
+  {% include 'slides/how/' + slide + '.html' %}
+{% endfor %}
+</section>
