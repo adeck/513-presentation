@@ -42,6 +42,7 @@ Reveal.initialize({
 					{ src: 'reveal/plugin/markdown/markdown.js',
             condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'reveal/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal/plugin/math/math.js', async: true },
 					{ src: 'reveal/plugin/zoom-js/zoom.js', async: true },
 					{ src: 'reveal/plugin/notes/notes.js', async: true }
 				]
