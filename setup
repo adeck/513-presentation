@@ -5,7 +5,7 @@
 
 install_deps ()
 {
-  revealjs && ace && staticjinja
+  revealjs && staticjinja
 }
 
 GIT="git clone --depth=1"
