@@ -12,7 +12,6 @@ Well, you'll want to install `git` and `virtualenv` (if you're on debian, you'll
     git clone https://github.com/adeck/513-presentation.git
     cd 513-presentation
     ./setup && ./build
-    ln out/main.html main.html
 
 This should install the two dependencies (reveal.js and staticjinja) into the CWD. Now navigate to your browser to `main.html` in the current directory, and you should see the presentation.
 
