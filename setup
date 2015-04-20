@@ -13,7 +13,8 @@ GIT="git clone --depth=1"
 # To display a slideshow
 revealjs ()
 {
-  $GIT https://github.com/hakimel/reveal.js.git reveal
+  local dir=reveal
+  [ -d $dir ] || $GIT https://github.com/hakimel/reveal.js.git $dir
   # return $? # This is implied.
 }
 
@@ -23,7 +24,8 @@ revealjs ()
 #   well do it correctly)
 ace ()
 {
-  $GIT https://github.com/ajaxorg/ace-builds.git ace
+  local dir=ace
+  [ -d $dir ] || $GIT https://github.com/ajaxorg/ace-builds.git $dir
 }
 
 # To combine slides

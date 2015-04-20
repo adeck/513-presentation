@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-mkdir out 2>/dev/null
+. venv/bin/activate
+[ -d out ] || mkdir out
 staticjinja build --outpath=out
+[ -f main.html ] || ln out/main.html main.html 
 
 
