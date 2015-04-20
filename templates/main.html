@@ -48,6 +48,16 @@ Reveal.initialize({
 					{ src: 'reveal/plugin/notes/notes.js', async: true }
 				]
 			});
+
+// Add support for hiding the cursor
+document.onkeydown = function (event) {
+  if (String.fromCharCode(event.which) === "M")
+  {
+    var s = document.getElementsByTagName('body')[0].style;
+    s.cursor = (s.cursor !== "none") ? "none" : "default";
+  }
+}
+
 </script>
 </html>
 
