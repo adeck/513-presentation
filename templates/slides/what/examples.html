@@ -3,7 +3,50 @@
 
 # Some examples
 
-- a thing $\frac{\theta}{2}$
-- another thing
+For m- and n-state one-letter DFA languages $L_1$ and $L_2$.
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Finite</th>
+      <th>Regular</th>
+    <tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$L_1 \bigcup L_2$</td>
+      <td>max$(m,n)$</td>
+      <td>$mn$, for $(m,n) = 1$</td>
+    <tr>
+    <tr>
+      <td>$L_1 \bigcap L_2$</td>
+      <td>min$(m,n)$</td>
+      <td>$mn$, for $(m,n) = 1$</td>
+    <tr>
+    <tr>
+      <td>$\Sigma^\* - L_1$</td>
+      <td>$m$</td>
+      <td>$m$</td>
+    <tr>
+    <tr>
+      <td>$L_1L_2$</td>
+      <td>$m + n - 1$</td>
+      <td>$mn$, for $(m,n) = 1$</td>
+    <tr>
+    <tr>
+      <td>$L^R_1$</td>
+      <td>$m$</td>
+      <td>$m$</td>
+    <tr>
+    <!--
+    <tr>
+      <td>$L^*_1$</td>
+      <td>$m^2 - 7m + 13 \textrm{, for } m \gt 4$</td>
+      <td>$(m - 1)^2 - 1$</td>
+    <tr>
+    -->
+  </tbody>
+</table>
 
 {% endblock %}

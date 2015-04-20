@@ -11,6 +11,6 @@
 #   URI scheme is employed.
 /main.html
 # Personal stuff
-/_rel/papers
+/_rel
 *.swp
 
