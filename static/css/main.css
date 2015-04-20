@@ -3,3 +3,8 @@
   font-size: 3em;
 }
 
+.slides > section:first-child {
+  transform-origin:50% 50%;
+  transform: rotate(5deg);
+  background:rgba(200,0,0,0.1);
+}

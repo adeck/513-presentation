@@ -1,14 +1,16 @@
 
-# Where the reveal.js repo is cloned
-reveal
-# Where the staticjinja dependencies are saved for the virtualenv pip install
-venv
+# Where the dependency repos are cloned (see setup.bash)
+/reveal
+/ace
+# Where the staticjinja is installed by virtualenv
+/venv
 # where the output from the staticjinja evaluation is dumped
-out
+/out
 # This should be a hard link to out/main.html, so that it's updated
 #   when ./build is run, and browsers view it correctly when the 'file://'
 #   URI scheme is employed.
 /main.html
-_rel/papers
+# Personal stuff
+/_rel/papers
 *.swp
 

@@ -1,0 +1,196 @@
+
+# State Complexity: Recent Results and Open Problems
+
+## personal observations
+
+- theme: tradeoff between state complexity and transition complexity
+
+## 1. intro (history)
+
+- history of findings
+  - 1950s
+    - Rabin and Scott -- number of states in a DFA transformed from n-state
+      NDA is limited to 2^n .
+    - Moore proved this bound is tight
+  - '60s and '70s
+    - many papers; primarily focused on minimizing DFAs
+      - focus on one-letter alphabets
+    - '71, Meyer & Fischer focused on a number of different models, but state
+      complexity wasn't a significant part of their analysis
+  - '80s and early '90s
+    - interesting papers on state complexity:
+      - Blumer et al. -- smallest incomplete DFA for set of all subwords of 
+        a word 'w', with |w| > 2, has at most 2|w| - 2 states, and 3|w| - 4
+        transitions
+      - Birget -- intersection of n languages, L_n^(1), ... , L_n^(n), each
+        accepted by an n-state DFA. Shown that n^n is a lower bound on number
+        of states for a DFA that accepts the intersection
+        - n^n was already known to be an upper bound, the bound's now known
+          optimal
+      - 1993 -- state complexity of MIN(L), where L is regular, and other
+        problems were considered.
+        - MIN(L) -- set of all minimal words in L with respect to the prefix
+          order
+        - 1 + (n - 1)2^{n - 2} optimal upper bound for the number of states in
+          a DFA that accepts MIN(L) s.t. L is accepted by an n-state DFA
+  - noteworthy findings
+    - O(nlgn) algorithm for DFA minimization by Hopcroft, s.t. n is the number
+      of states in the given DFA, is (as of 2005) the fastes algorithm for DFA
+      minimization in time complexity
+    - Brzozowski's algorithm is interesting; however, it's worst-case time is
+      exponential
+- basic problems unresolved
+  - e.g.
+    - exact bound for the number of states in a DFA accepting catenation of
+      two languages
+    - star operation for regular language
+  - no systematic studies of SC problems until early '90s
+  - a lot of research from 1994 - 2005
+
+## 2. Basic Notations and Definitions
+
+* he mentioned at the end of (1) that people familiar with s.c. research could
+  skip this. I don't fall in that category, so... notes!
+  * Which isn't to say that I don't know any, or even most, of these terms,
+    but I'm not familiar with the research in this area (yet), and it can't
+    hurt to review a bit of the fundamental theory covered in 431
+  * Or, rephrasing... these are terms I can't afford to not know, which I only
+    learned in the last couple years, so it's probably a worthwhile exercise
+    to review them
+- terms
+  - DFA --> quintuple (Q = states, \Sigma = alphabet, \delta = transition
+    function: Q x \Sigma --> Q, q0 = initial state, F = set of final
+    states)
+    - Q is finite and nonempty
+    - \Sigma is finite
+    - q0 \in Q
+    - F \subseteq Q
+  - all DFA are assumed to be complete in this paper
+    - complete -- transition defined for each letter of the alphabet in each
+      state; \delta is a total function
+    - incomplete -- \delta is a partial function; undefined for some
+      combinations of Q and \Sigma
+  - words
+    - for x \in \Sigma \*, |x| = length(x), |x|\_a, a \in \Sigma, is the number
+      of occurences of a in x
+    - \epsilon -- empty word
+      * also known as the \lambda transition, if I recall. Epsilon transition
+        or lambda transition...
+    - a word w is accepted by a DFA A = (Q, \Sigma, \delta, q, F)
+      if \delta(q, w) \in F. Two DFA are equivalent if they accept the same
+      language
+  - \delta
+    - \hat{\delta} : Q x \Sigma * --> Q, obtained by setting \hat{\delta}(q,
+      \epsilon) = q, and \hat{\delta}(q, ax) = \hat{\delta}(\delta(q, a), x)
+      for q \in Q, a \in \Sigma, and x \in \Sigma *.
+      - subsequently in the paper, \delta is used instead of \hat{\delta} when
+        it should be obvious from context that it's \hat{\delta}
+        * lazy bastard. How long does it take to go:
+          \newcommand\deltah{\hat{\delta}}
+          ?
+  - a regular language is accepted by infinitely-many DFA.
+    - however, there is one minimal DFA unique up to renaming states
+      (isomorphism)
+    - state complexity: "...of a regular language L, denoted C(L), [is] the
+      number of states in the minimal DFA that accepts the language L"
+      - state complexity of a class of languages \L, C(\L) is the maximum
+        of C(L) \forall L \in \L
+    - state complexity of an operation on regular languages is the complexity
+      of the minimum DFA that results from applying that operation to some
+      other DFAs
+      - e.g.
+        - the s.c. of intersection is nm, for an n-state language L_1 and
+          m-state language L_2
+  - DFAs are used instead of NFAs
+    - minimal DFAs are isomorphic, while minimal NFAs aren't; there may be
+      several distinct minimal NFAs
+    - the best minimization algo for DFAs (as of 2005) is O(nlgn) time, while
+      the minimization problem for NFAs is PSPACE complete; no poly-time
+      algo currently
+
+## 3. State Complexity Results in the Last Ten Years (1994 - 2005)
+
+- (see tables of summarized findings on page 4 of PDF, labeled 474 on the top
+  left of the page) 
+  - assumptions
+    - for table 1
+      - L\_1 is an m-state DFA language
+      - L\_2 is an n-state DFA language
+      - \Sigma = {a}
+      - m, n > 1
+      - (m, n) = 1 implies m and n are relatively prime
+    - for table 2
+      - true for general \Sigma (so, not only |\Sigma| = 1
+      - L\_1 and 2 accepted by an m-state DFA A_1 = (Q_1, \Sigma, \delta_1,
+        s_1, F_1) and an n-state DFA A_2 = (Q_2, \Sigma, \delta_2, s_2, F_2)
+      - m, n > 1
+  - comments made:
+    - there were a number of other interesting papers, and they were unable
+      to cover all of the research, especially research from 2000-5, 
+    - results for single-letter alphabet DFAs are given in terms of pairs of
+      numbers, because every such DFA has a cycle and a tail.
+- important asides
+  - m2^n - k2^{n - 1} is an upper bound on the number of states in a DFA that
+    is the catenation of an m-state DFA and an n-state DFA, where k is the
+    number of final states in the first DFA
+    - upper bound is tight for arbitrary k \ge 1
+  - state complexity of proportional removals of regular languages
+    - 0.5 (L) has s.c. O(nH(n)), s.t. L is accepted by n-state DFA, and
+      H(n) = e^\sqrt{nlgn}
+  - complexity of shuffle of regular languages is 2^{nm} - 1, and that's a tight
+    upper bound for the shuffle of an m-state DFA language and an n-state DFA
+- other problems
+  - average-case complexity
+    - Nicaud investigated average-case state complexity of ops on unary L
+      - results on union and * found
+  - s.c. of NFAs; size of a DFA is linear to the # of states, _but_ size of an
+    NFA is determined by its transition number
+
+## 4. Why many Basic State Complexity Problems Were Not Solved Earlier
+
+- two factors
+  - few states in finite automata, so in practice asymptotic analysis was
+    unnecessary / no motivation existed
+    - now, used in natural language & speech processing, software engineering,
+      image generation & encoding, etc.
+      - Bell Labs TTS system needs 26.6 mbytes for German, 30.0 for French,
+        and 39.0 for Mandarin
+    - these app domains require a large # of states
+  - new tech
+    - software systems including:
+      - Grail
+      - AMORE
+      - Automate
+      - FireLite
+      - etc.
+- process for determining new information on automata
+  - (see figure on page 6)
+  - guess and check using random models, casting aside obvious incorrect
+    assumptions, tightening the bounds of possibility until you find bounds
+    you can comfortably prove
+  - then, formally prove them
+  - early theoretical CS also experimented, but used pencil and paper
+
+## 5. What Are the Next Possible Topics in State Complexity Research
+
+- open problems
+  - s.c. combinations of multiple operations
+    - because they are _not_ necessarily the pure composition of the worst-case
+      functions; it may not be possible to get the worst-case behavior if you
+      take the union of a star or the star of a union, for example.
+  - conditions for cases which are not worst case
+    - for many apps worst case is impossible, and it's useful to know when
+      the worst case may not happen
+    - for example, Bzorowski's algo (mentioned above) uses two reversals of a
+      DFA, which could have exponential time complexity in the worst case,
+      but is many cases ends up being faster than Hopcroft's O(nlgn) algo
+      - so, under what conditions will a DFA reversal not have an exponential
+        explosion?
+    * at this point, there are a few theorems and definitions relevant to the
+      problem discussed. They're interesting, and on pages 6.5 to 7.5, but
+      frankly they're pretty irrelevant to subsequent presentation material,
+      and I wouldn't have time to cover them, anyway. So this is it.
+
+
+
+

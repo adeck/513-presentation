@@ -1,0 +1,36 @@
+
+# Inapproximability of Nondeterministic State and Transition Complexity Assuming P \ne NP
+
+## personal observations
+
+- themes
+  - a bunch of different applications for finite automata which involve
+    potentially enormous data footprints
+    - circuit design, natural language processing, computational biology,
+      parallel processing, image compression, etc.
+
+## 1. Introduction
+
+* jesus christ- did no one take any tech writing courses?
+  * Introduction -- the name you give a section if you want to guarantee only
+    the most assiduous readers won't skip it
+
+- general comments & previous research
+  - many applications for finite automata
+  - known that NFAs and DFAs are equal in expressive power
+    - however, NFAs can be "exponentially more succinct"
+  - under cryptographic assumptions, it's been proven that you can't approximate
+    within \frac{\sqrt{n}}{polylog(n)} for state minimization, and
+    \frac{n}{polylog(n)} for transition minimization
+  - however, they were curious about what could be proven with:
+    - the weaker, usual assumption of P \ne NP, and
+    - a language given as a truth table rather than a DFA
+
+* resume on page 2
+
+
+
+
+
+
+

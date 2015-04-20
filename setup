@@ -5,25 +5,38 @@
 
 install_deps ()
 {
-  revealjs && staticjinja
+  revealjs && ace && staticjinja
 }
 
+GIT="git clone --depth=1"
+
+# To display a slideshow
 revealjs ()
 {
-  local result
-  git clone https://github.com/hakimel/reveal.js.git
-  result=$?
-  mv reveal.js reveal
-  return $result
+  $GIT https://github.com/hakimel/reveal.js.git reveal
+  # return $? # This is implied.
 }
 
+# For intelligent code highlighting + editing
+# (revealjs has builtin code highlighting + editing capability, but it's
+#   comparatively pretty weak. If you're going to have editing, might as
+#   well do it correctly)
+ace ()
+{
+  $GIT https://github.com/ajaxorg/ace-builds.git ace
+}
+
+# To combine slides
 staticjinja ()
 {
   mkdir venv
   virtualenv venv && . venv/bin/activate && pip install staticjinja
-  return $?
 }
 
 install_deps
+
+
+# Only need the last commit, since in this case I'm not actually using git
+#   for version control
 
 
