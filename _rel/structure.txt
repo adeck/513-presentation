@@ -1,8 +1,0 @@
-
-- presentation outline for current research on state complexity
-  - what is state complexity?
-  - how is research done?
-  - why there's research?
-  - Findings (as of 2005)
-  - NFA research 2005 - today
-
