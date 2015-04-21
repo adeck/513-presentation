@@ -1,0 +1,43 @@
+{% extends 'layouts/slide.html' %}
+{% block contents %}
+
+# The findings
+
+<table>
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Prefix-free NFA SC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$L_1L_2$</td>
+      <td>$m + n - 1$</td>
+    </tr>
+    <tr>
+      <td>$L_1 \bigcup L_2$</td>
+      <td>$m + n$</td>
+    </tr>
+    <tr>
+      <td>$L_1 \bigcap L_2$</td>
+      <td>$mn - (m + n) + 2$, for $|\Sigma| \ge 3$</td>
+    </tr>
+    <tr>
+      <td>$L_1^\*$</td>
+      <td>$m$</td>
+    </tr>
+    <tr>
+      <td>$L_1^R$</td>
+      <td>$m$</td>
+    </tr>
+    <tr>
+      <td>$\bar{L_1}$</td>
+      <td>$2^{m - 1} + 1</td>
+    </tr>
+  </tbody>
+</table>
+
+
+{% endblock %}
+
