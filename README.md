@@ -42,7 +42,13 @@ or
   </dd>
 </dl>
 
+## How can I change my presentation's theme?
 
+The current theme of the presentation is `blood`; an official revealjs theme not mentioned in revealjs documentation. However, it's easy to switch; simply change the link at the top from one to `blood.css` to one of the other options in that directory (my personal favorite alternative is `sky`).
+
+## How can I share my presentation?
+
+The only things you actually need for your presentation are the (generated) `main.html` file, the `revealjs` directory, and the `static` directory. They all need to be in the same directory. If you wanted to e-mail your presentation- especially if you're rushed- the largest subdirectory by far will be the `venv` directory, so you should move that elsewhere or delete it, and then you can zip everything else and send that (for me, zipping everything without the `venv` directory yielded a 3.2 MB achive, and zipping with the `venv` directory yielded a 22 MB archive; slightly larger than most mail services allow).
 
 
 
